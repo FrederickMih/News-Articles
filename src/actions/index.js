@@ -1,15 +1,15 @@
-export const NEWS_ARTICLE_ONE = 'NEWS_ARTICLE_ONE';
-export const NEWS_ARTICLE_TWO = 'NEWS_ARTICLE_TWO';
+export const NEWS_ARTICLE_HEADER = 'NEWS_ARTICLE_HEADER';
+export const CUSTOM_NEWS_ARTICLE = 'CUSTOM_NEWS_ARTICLE';
 export const PRESENT_ARTICLE = 'PRESENT_ARTICLE';
 export const NEWS_ARTICLE_ERROR = 'NEWS_ARTICLE_ERROR';
 export const CHANGE_FILTER = 'CHANGE_FILTER';
 
-export const newsArtcleOne = () => ({
-  type: NEWS_ARTICLE_ONE,
+export const newsArticleHeader = () => ({
+  type: NEWS_ARTICLE_HEADER,
 });
 
-export const newsArtcleTwo = (articles) => ({
-  type: NEWS_ARTICLE_TWO,
+export const customNewsArticle = (articles) => ({
+  type: CUSTOM_NEWS_ARTICLE,
   payload: articles,
 });
 
