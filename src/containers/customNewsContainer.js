@@ -38,7 +38,7 @@ const CustomNewsContainer = () => {
   const getNews = (e) => {
     console.log(source);
     e.preventDefault();
-    if (source === '' || source === 'nothing') {
+    if (source === '' || source === 'empty') {
       console.log('There is no source selected');
     } else {
       getCustomNews(source, mostImportant);
@@ -80,7 +80,7 @@ const CustomNewsContainer = () => {
           <div className="form-control">
             <h2>Source</h2>
             <select onChange={(e) => setSource(e.target.value)}>
-              <option value="nothing">Select an option...</option>
+              <option value="empty">Select an option...</option>
               {
                                 sources.map((source) => (
                                   <option key={source.id} value={source.id}>{source.name}</option>

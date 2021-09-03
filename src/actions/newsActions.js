@@ -1,4 +1,5 @@
 export const FETCH_CUSTOM_NEWS = 'FETCH_CUSTOM_NEWS';
+export const SHOW_ARTICLE = 'SHOW_ARTICLE';
 export const NEWS_ARTICLE_ERROR = 'NEWS_ARTICLE_ERROR';
 export const CHANGE_FILTER = 'CHANGE_FILTER';
 
@@ -30,6 +31,11 @@ export const fetchCustomNews = (source, mostImportant) => (dispatch) => {
       console.log(err);
     });
 };
+
+export const showArticle = (currency) => ({
+  type: SHOW_ARTICLE,
+  currency,
+});
 
 export const changeFilter = (filter) => ({
   type: CHANGE_FILTER,

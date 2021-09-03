@@ -5,11 +5,11 @@ import { useDispatch } from 'react-redux';
 
 const Article = ({ article }) => {
   const dispatch = useDispatch();
-  const handleClickGotoarticle = (article) => dispatch({ type: 'PRESENT_ARTICLE', article });
+  const handleClickGotoArticle = (article) => dispatch({ type: 'SHOW_ARTICLE', article });
   return (
     <div className="article">
-      <span className="article-rank">{article.author}</span>
-      <img src={article.logo_url} alt="logo" className="cur-logo" />
+      <span className="article-name">{article.name}</span>
+      <img src={article.urlToImage} alt="img" className="article-logo" />
       <Link
         to={{
           pathname: '/article',
@@ -18,11 +18,11 @@ const Article = ({ article }) => {
           },
         }}
         key={article.name}
-        onClick={() => handleClickGotoarticle(article)}
+        onClick={() => handleClickGotoArticle(article)}
       >
         {article.name}
         {' '}
-        {article.symbol}
+        {article.urlToImage}
 
       </Link>
     </div>
@@ -32,9 +32,8 @@ const Article = ({ article }) => {
 Article.propTypes = {
   article: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    logo_url: PropTypes.string.isRequired,
+    urlToImage: PropTypes.string.isRequired,
     symbol: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
   }).isRequired,
 };
 
