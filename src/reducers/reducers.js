@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
-import customSearch from './custom_search';
+import articleReducer from './articleReducers';
 
-// combine reducers
-// remember you need to export the reducers to use them
 const reducers = combineReducers({
-  CustomSearch: customSearch,
+  articleReducer,
 });
 
 export default reducers;

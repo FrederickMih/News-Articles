@@ -7,6 +7,7 @@ import {
 const initialState = {
   customNews: [],
   error: null,
+  loading: false,
 };
 
 const articleReducer = (state = initialState, action) => {

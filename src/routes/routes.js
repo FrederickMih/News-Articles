@@ -1,8 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-
-// import the components
-import ArticleContainer from '../components/main';
+import ArticleContainer from '../containers/customNewsContainer';
 
 const Routes = () => (
   <BrowserRouter>

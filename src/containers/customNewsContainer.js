@@ -1,30 +1,28 @@
 import React, { useState, useEffect } from 'react';
-// redux hooks
-// import the action
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchCustomNews } from '../actions/newsActions';
 
-const Main = () => {
-  // news sources
+const CustomNewsContainer = () => {
   const [sources, setSources] = useState([]);
-  // select source
   const [source, setSource] = useState('');
-  // select relevance
   const [mostImportant, setMostImportant] = useState('');
 
-  // ----- connect redux
-  // here we get add the reducer that has the state we want
-  const customNewsSelector = useSelector((state) => state.CustomSearch);
-  // dispatch hook
+  let newsArticles = useSelector((state) => state.articleReducer);
+  const filterPattern = useSelector((state) => state.pattern);
+
+  if (filterPattern && newsArticles) {
+    newsArticles = newsArticles.filter((ar) => ar.name.toLowerCase().startsWith(filterPattern)
+      || ar.category.toLowerCase().startsWith(filterPattern));
+  }
+
   const dispatch = useDispatch();
-  // action to dispatch
+
   const getCustomNews = (source, mostImportant) => dispatch(fetchCustomNews(source, mostImportant));
 
-  // get the sources
   const getSources = () => {
     fetch('https://newsapi.org/v1/sources?')
       .then((scs) => {
-        console.log(customNewsSelector.customNews);
+        console.log(newsArticles.customNews);
         return scs.json();
       })
       .then((response) => {
@@ -33,7 +31,6 @@ const Main = () => {
       });
   };
 
-  // effect
   useEffect(() => {
     getSources();
   }, []);
@@ -45,16 +42,16 @@ const Main = () => {
       console.log('There is no source selected');
     } else {
       getCustomNews(source, mostImportant);
-      console.log(customNewsSelector.customNews);
+      console.log(newsArticles.customNews);
     }
   };
 
   let news;
-  if (customNewsSelector.customNews.length > 0) {
+  if (newsArticles.customNews.length > 0) {
     news = (
 
       <div className="news">
-        { customNewsSelector.customNews.map((nws) => (
+        { newsArticles.customNews.map((nws) => (
           <div className="post" key={nws.title}>
 
             <img src={nws.urlToImage} alt={nws.title} />
@@ -106,4 +103,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default CustomNewsContainer;
