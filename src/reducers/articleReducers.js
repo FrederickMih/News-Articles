@@ -1,6 +1,6 @@
 import {
-  NEWS_ARTICLE_ONE,
-  NEWS_ARTICLE_TWO,
+  NEWS_ARTICLE_HEADER,
+  FETCH_SEARCH_NEWS,
   PRESENT_ARTICLE,
   CHANGE_FILTER,
   NEWS_ARTICLE_ERROR,
@@ -13,16 +13,16 @@ const initialState = {
 
 const articleReducer = (state = initialState, action) => {
   switch (action.type) {
-    case NEWS_ARTICLE_ONE:
+    case NEWS_ARTICLE_HEADER:
       return {
         ...state,
         error: null,
       };
 
-    case NEWS_ARTICLE_TWO:
+    case CUSTOM_NEWS_ARTICLE:
       return {
         ...state,
-        news: action.artcles,
+        news: action.payload,
         error: action.payload.error,
       };
 

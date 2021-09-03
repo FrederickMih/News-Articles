@@ -1,11 +1,9 @@
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-       <h1>The Latest News update</h1>
-      </header>
-    </div>
-  );
-}
+import Routes from '../routes/routes';
+
+const App = () => (
+  <div className="app-div">
+    <Routes />
+  </div>
+);
 
 export default App;

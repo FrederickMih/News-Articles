@@ -15,7 +15,7 @@ export const customNewsArticle = (articles) => ({
 
 export const presentArticle = (article) => ({
   type: PRESENT_ARTICLE,
-  payload: article,
+  article,
 });
 
 export const newsArticleError = (error) => ({
