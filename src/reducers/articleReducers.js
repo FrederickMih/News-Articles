@@ -1,28 +1,20 @@
 import {
-  NEWS_ARTICLE_HEADER,
-  FETCH_SEARCH_NEWS,
-  PRESENT_ARTICLE,
+  FETCH_CUSTOM_NEWS,
   CHANGE_FILTER,
   NEWS_ARTICLE_ERROR,
-} from '../actions/index';
+} from '../actions/newsActions';
 
 const initialState = {
-  news: [],
+  customNews: [],
   error: null,
 };
 
 const articleReducer = (state = initialState, action) => {
   switch (action.type) {
-    case NEWS_ARTICLE_HEADER:
+    case FETCH_CUSTOM_NEWS:
       return {
         ...state,
-        error: null,
-      };
-
-    case CUSTOM_NEWS_ARTICLE:
-      return {
-        ...state,
-        news: action.payload,
+        customNews: action.payload,
         error: action.payload.error,
       };
 
@@ -30,14 +22,7 @@ const articleReducer = (state = initialState, action) => {
       return {
         ...state,
         error: action.payload.error,
-        news: [],
-      };
-
-    case PRESENT_ARTICLE:
-      return {
-        news: action.artcles,
-        article: action.article,
-        pattern: null,
+        customNews: [],
       };
 
     case CHANGE_FILTER:

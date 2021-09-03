@@ -1,7 +1,7 @@
 const customSearch = (state = {
   customNews: [],
 }, action) => {
-  if (action.type === 'FETCH_SEARCH_NEWS') {
+  if (action.type === 'FETCH_CUSTOM_NEWS') {
     // eslint-disable-next-line no-param-reassign
     state = { ...state, customNews: action.payload };
   }
