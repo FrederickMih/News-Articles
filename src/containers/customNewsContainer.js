@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchCustomNews } from '../actions/newsActions';
+import Article from './Article';
 
 const CustomNewsContainer = () => {
   const [sources, setSources] = useState([]);
   const [source, setSource] = useState('');
   const [mostImportant, setMostImportant] = useState('');
 
-  let newsArticles = useSelector((state) => state.articleReducer);
+  const newsArticles = useSelector((state) => state.articleReducer);
+  let articles = useSelector((state) => state.customNews);
   const filterPattern = useSelector((state) => state.pattern);
 
-  if (filterPattern && newsArticles) {
-    newsArticles = newsArticles.filter((ar) => ar.name.toLowerCase().startsWith(filterPattern)
+  if (filterPattern && articles) {
+    articles = articles.filter((ar) => ar.name.toLowerCase().startsWith(filterPattern)
       || ar.category.toLowerCase().startsWith(filterPattern));
   }
 
@@ -56,6 +58,7 @@ const CustomNewsContainer = () => {
 
             <img src={nws.urlToImage} alt={nws.title} />
             <h2>{nws.title}</h2>
+            <h2>{nws.name}</h2>
             <p>{nws.description}</p>
             <a href={nws.url}>
               {' '}
@@ -99,6 +102,9 @@ const CustomNewsContainer = () => {
         {news}
 
       </section>
+      {articles ? articles.map((article) => (
+        <Article key={article.name} article={article} />
+      )) : 'Please wait'}
     </>
   );
 };

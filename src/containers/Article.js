@@ -8,6 +8,7 @@ const Article = ({ article }) => {
   const handleClickGotoArticle = (article) => dispatch({ type: 'SHOW_ARTICLE', article });
   return (
     <div className="article">
+      <h1>Hello Fred</h1>
       <span className="article-name">{article.name}</span>
       <img src={article.urlToImage} alt="img" className="article-logo" />
       <Link
@@ -22,7 +23,7 @@ const Article = ({ article }) => {
       >
         {article.name}
         {' '}
-        {article.urlToImage}
+        {article.description}
 
       </Link>
     </div>
@@ -33,7 +34,7 @@ Article.propTypes = {
   article: PropTypes.shape({
     name: PropTypes.string.isRequired,
     urlToImage: PropTypes.string.isRequired,
-    symbol: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
   }).isRequired,
 };
 

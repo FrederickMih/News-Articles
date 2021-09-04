@@ -2,12 +2,12 @@ import {
   FETCH_CUSTOM_NEWS,
   CHANGE_FILTER,
   NEWS_ARTICLE_ERROR,
+  SHOW_ARTICLE,
 } from '../actions/newsActions';
 
 const initialState = {
   customNews: [],
   error: null,
-  loading: false,
 };
 
 const articleReducer = (state = initialState, action) => {
@@ -24,6 +24,14 @@ const articleReducer = (state = initialState, action) => {
         ...state,
         error: action.payload.error,
         customNews: [],
+      };
+
+    case SHOW_ARTICLE:
+      return {
+        ...state,
+        customNews: action.articles,
+        article: action.article,
+        pattern: null,
       };
 
     case CHANGE_FILTER:

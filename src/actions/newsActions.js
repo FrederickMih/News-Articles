@@ -32,12 +32,27 @@ export const fetchCustomNews = (source, mostImportant) => (dispatch) => {
     });
 };
 
-export const showArticle = (currency) => ({
+export const fetchTechCrunch = () => (dispatch) => {
+  const apiKey = '08dd40237d8148d9ade088ed2744791c';
+  fetch(`https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=${apiKey}`)
+    .then((res) => res.json())
+    .then((res) => {
+      // console.log(res)
+      dispatch({
+        type: 'FETCH_TECH_CRUNCH',
+        payload: res.articles,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+export const showArticle = (articles) => ({
   type: SHOW_ARTICLE,
-  currency,
+  articles,
 });
 
 export const changeFilter = (filter) => ({
   type: CHANGE_FILTER,
-  payload: filter,
+  filter,
 });
