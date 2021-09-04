@@ -3,8 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchTechCrunch } from '../actions/newsActions';
 
 const TechNews = () => {
-  // ----- redux and dispatch the action
-  const techSelector = useSelector((state) => state.fetchTechCrunch);
+  const techSelector = useSelector((state) => state.articleReducer);
   const dispatch = useDispatch();
   const getTechNews = () => dispatch(fetchTechCrunch());
 
@@ -17,11 +16,14 @@ const TechNews = () => {
       <section>
         <h2>Technology News</h2>
         <div className="news">
-          {techSelector.techNews.map((x) => (
-            <div className="post" key={x.title}>
-              <img src={x.urlToImage} alt="Tech" />
-              <h2>{x.title}</h2>
-              <p>{x.description}</p>
+          {techSelector.techNews.map((tech) => (
+            <div className="post" key={tech.title}>
+
+              <h2>{tech.title}</h2>
+              <p>{tech.description}</p>
+              <a href={tech.url}><img src={tech.urlToImage} alt="Tech" /></a>
+              <h2>{tech.content}</h2>
+              <h3>{tech.publishedAt}</h3>
             </div>
           ))}
         </div>

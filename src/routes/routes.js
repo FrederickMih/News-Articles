@@ -7,9 +7,9 @@ import TechNews from '../containers/techNewsContainer';
 const Routes = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path="/" component={ArticleContainer} />
+      <Route exact path="/" component={TechNews} />
+      <Route exact path="/custom" component={ArticleContainer} />
       <Route exact path="/article" component={MoreArticles} />
-      <Route exact path="/tech" component={TechNews} />
     </Switch>
   </BrowserRouter>
 
