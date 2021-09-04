@@ -2,6 +2,7 @@ export const FETCH_CUSTOM_NEWS = 'FETCH_CUSTOM_NEWS';
 export const SHOW_ARTICLE = 'SHOW_ARTICLE';
 export const NEWS_ARTICLE_ERROR = 'NEWS_ARTICLE_ERROR';
 export const CHANGE_FILTER = 'CHANGE_FILTER';
+export const FETCH_TECH_CRUNCH = 'FETCH_TECH_CRUNCH';
 
 export const newsArticleError = (error) => ({
   type: NEWS_ARTICLE_ERROR,
@@ -39,7 +40,7 @@ export const fetchTechCrunch = () => (dispatch) => {
     .then((res) => {
       // console.log(res)
       dispatch({
-        type: 'FETCH_TECH_CRUNCH',
+        type: FETCH_TECH_CRUNCH,
         payload: res.articles,
       });
     })

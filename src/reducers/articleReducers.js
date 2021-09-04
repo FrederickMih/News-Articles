@@ -1,11 +1,13 @@
 import {
   FETCH_CUSTOM_NEWS,
+  FETCH_TECH_CRUNCH,
   CHANGE_FILTER,
   NEWS_ARTICLE_ERROR,
   SHOW_ARTICLE,
 } from '../actions/newsActions';
 
 const initialState = {
+  techNews: [],
   customNews: [],
   error: null,
 };
@@ -17,6 +19,12 @@ const articleReducer = (state = initialState, action) => {
         ...state,
         customNews: action.payload,
         error: action.payload.error,
+      };
+
+    case FETCH_TECH_CRUNCH:
+      return {
+        ...state,
+        techNews: action.payload,
       };
 
     case NEWS_ARTICLE_ERROR:
