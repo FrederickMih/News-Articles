@@ -1,0 +1,15 @@
+
+.theFooter {
+  text-align: center;
+  color: white;
+  margin: 0 auto;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  border-top: 1px solid #c9ab81;
+  background-color: black;
+  width: 100%;
+  position: relative;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
