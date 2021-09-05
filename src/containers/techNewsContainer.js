@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchTechCrunch } from '../actions/newsActions';
+import CustomNewsContainer from './customNewsContainer';
 import '../Styles/techNewsContainer.css';
 
 const TechNews = () => {
@@ -27,6 +28,7 @@ const TechNews = () => {
           ))}
         </div>
       </section>
+      <CustomNewsContainer />
     </>
   );
 };
