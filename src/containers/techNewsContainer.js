@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchTechCrunch } from '../actions/newsActions';
+import '../Styles/techNewsContainer.css';
 
 const TechNews = () => {
   const techSelector = useSelector((state) => state.articleReducer);
@@ -19,11 +20,9 @@ const TechNews = () => {
           {techSelector.techNews.map((tech) => (
             <div className="post" key={tech.title}>
 
-              <h2>{tech.title}</h2>
-              <p>{tech.description}</p>
+              <h2>{tech.author}</h2>
               <a href={tech.url}><img src={tech.urlToImage} alt="Tech" /></a>
-              <h2>{tech.content}</h2>
-              <h3>{tech.publishedAt}</h3>
+
             </div>
           ))}
         </div>

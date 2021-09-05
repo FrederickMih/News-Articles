@@ -1,0 +1,65 @@
+body{
+    background: rgb(229, 231, 238);  
+    padding: 0px;
+    margin: 0px;
+    font-family: "Open Sans"; 
+}
+
+
+
+h2 {
+    color:rgb(189, 189, 189);
+    font-size: 2rem;
+}
+
+.news {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.post {
+    width: 100%;
+    max-width: 350px;
+    margin: 10px;
+    background: #fff;
+    padding: 10px;
+}
+
+.post img {
+    width: 100%;
+}
+
+form *{
+    display: block;
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+form label {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+form select {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #222;
+    padding: 10px;
+    
+}
+
+form input[type="submit"] {
+    margin-top: 10px;
+    width: 100px;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    background: #5433FF;
+    padding: 10px;
+    border-radius: 4px;
+    color: #fff;
+    -webkit-box-shadow: 0px 10px 12px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 12px -8px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 12px -8px rgba(0,0,0,0.75);
+} 
