@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchCustomNews } from '../actions/newsActions';
-import Article from './Article';
+import '../Styles/CustomNewsContainer.css';
 
 const CustomNewsContainer = () => {
   const [sources, setSources] = useState([]);
@@ -9,13 +9,6 @@ const CustomNewsContainer = () => {
   const [mostImportant, setMostImportant] = useState('');
 
   const newsArticles = useSelector((state) => state.articleReducer);
-  let articles = useSelector((state) => state.customNews);
-  const filterPattern = useSelector((state) => state.pattern);
-
-  if (filterPattern && articles) {
-    articles = articles.filter((ar) => ar.name.toLowerCase().startsWith(filterPattern)
-      || ar.category.toLowerCase().startsWith(filterPattern));
-  }
 
   const dispatch = useDispatch();
 
@@ -102,9 +95,6 @@ const CustomNewsContainer = () => {
         {news}
 
       </section>
-      {articles ? articles.map((article) => (
-        <Article key={article.name} article={article} />
-      )) : 'Please wait'}
     </>
   );
 };

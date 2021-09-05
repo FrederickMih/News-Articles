@@ -9,7 +9,7 @@ const Article = ({ article }) => {
   return (
     <div className="article">
       <h1>Hello Fred</h1>
-      <span className="article-name">{article.name}</span>
+      <span className="article-name">{article.content}</span>
       <img src={article.urlToImage} alt="img" className="article-logo" />
       <Link
         to={{
@@ -21,7 +21,7 @@ const Article = ({ article }) => {
         key={article.name}
         onClick={() => handleClickGotoArticle(article)}
       >
-        {article.name}
+        {article.content}
         {' '}
         {article.description}
 
@@ -32,6 +32,7 @@ const Article = ({ article }) => {
 
 Article.propTypes = {
   article: PropTypes.shape({
+    content: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     urlToImage: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
