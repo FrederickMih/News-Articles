@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import '../Styles/Article.css';
 
 const Article = ({ article }) => {
   const dispatch = useDispatch();
@@ -9,7 +10,7 @@ const Article = ({ article }) => {
   return (
     <div className="article">
       <h1>Hello Fred</h1>
-      <span className="article-name">{article.content}</span>
+      <span className="article-name">{article.author}</span>
       <img src={article.urlToImage} alt="img" className="article-logo" />
       <Link
         to={{
@@ -18,10 +19,10 @@ const Article = ({ article }) => {
             article,
           },
         }}
-        key={article.name}
+        key={article.urlToImage}
         onClick={() => handleClickGotoArticle(article)}
       >
-        {article.content}
+        {article.urlToImage}
         {' '}
         {article.description}
 
@@ -32,7 +33,7 @@ const Article = ({ article }) => {
 
 Article.propTypes = {
   article: PropTypes.shape({
-    content: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     urlToImage: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,

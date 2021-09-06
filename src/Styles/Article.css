@@ -1,0 +1,29 @@
+.cur-logo {
+  width: 3rem;
+  max-height: 3rem;
+  margin-right: 0.7rem;
+}
+
+.article {
+  border-bottom: 1px solid #c9ab81;
+  width: 100%;
+  margin-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  font-size: 1.7rem;
+  text-align: center;
+  position: relative;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .article {
+    font-size: 1.2rem;
+  }
+
+
+
+  .article-logo {
+    width: 2rem;
+    max-height: 2rem;
+  }
+}
