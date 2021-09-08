@@ -9,6 +9,7 @@ const TechCrunch = (props) => {
   useEffect(() => {
     props.fetchTechCrunch(props.match.params.id);
     props.loadingArticle();
+    console.log(fetchTechCrunch);
   }, []);
 
   const { article, loading } = props;
@@ -49,7 +50,7 @@ const TechCrunch = (props) => {
               ReadMore..
             </a>
             <Link to="/" rel="noopener noreferrer" className="btn mx-3 btn-default btn-dark">
-              Go Back to Search
+              Back to Search
             </Link>
           </div>
         </div>
