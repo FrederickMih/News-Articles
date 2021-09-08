@@ -1,15 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-// import ArticleContainer from '../containers/customNewsContainer';
-import TechNews from '../containers/techNewsContainer';
-// import DetailedArticle from '../containers/NewsDetails';
+import ArticleDetails from '../components/ArticleDetails';
 
 const Routes = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path="/" component={TechNews} />
-      {/* <Route exact path="/" component={DetailedArticle} />
-      <Route exact path="/article" component={ArticleContainer} /> */}
+      <Route exact path="/article/:id" component={ArticleDetails} />
+
     </Switch>
   </BrowserRouter>
 

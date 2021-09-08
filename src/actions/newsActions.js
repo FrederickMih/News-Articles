@@ -1,7 +1,7 @@
 export const FETCH_CUSTOM_NEWS = 'FETCH_CUSTOM_NEWS';
 export const SEARCH_ARTICLE = 'SEARCH_ARTICLE';
-export const NEWS_ARTICLE_ERROR = 'NEWS_ARTICLE_ERROR';
 export const FILTER_NEWS = 'FILTER_NEWS';
+export const LOADING_ARTICLE = 'LOADING_ARTICLE';
 export const FETCH_TECH_CRUNCH = 'FETCH_TECH_CRUNCH';
 export const FETCH_TECH_NEWS = 'FETCH_TECH_NEWS';
 
@@ -42,4 +42,8 @@ export const searchArticle = (source) => (dispatch) => {
 export const filterNews = (filter) => ({
   type: FILTER_NEWS,
   payload: filter,
+});
+
+export const loadingArticle = () => ({
+  type: LOADING_ARTICLE,
 });

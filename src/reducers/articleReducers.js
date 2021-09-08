@@ -1,13 +1,16 @@
 import {
   FETCH_CUSTOM_NEWS,
   FETCH_TECH_CRUNCH,
+  LOADING_ARTICLE,
   SEARCH_ARTICLE,
 } from '../actions/newsActions';
 
 const initialState = {
   source: [],
-  newsArts: [],
-  newsArt: [],
+  loading: false,
+  initialScreeen: true,
+  articles: [],
+  article: [],
 };
 
 const articleReducer = (state = initialState, action) => {
@@ -21,13 +24,19 @@ const articleReducer = (state = initialState, action) => {
     case FETCH_TECH_CRUNCH:
       return {
         ...state,
-        newsArts: action.payload,
+        articles: action.payload,
       };
 
     case SEARCH_ARTICLE:
       return {
         ...state,
-        newsArt: action.payload,
+        article: action.payload,
+      };
+
+    case LOADING_ARTICLE:
+      return {
+        ...state,
+        loading: true,
       };
 
     default:
