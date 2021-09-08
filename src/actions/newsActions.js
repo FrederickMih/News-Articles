@@ -1,24 +1,14 @@
 export const FETCH_CUSTOM_NEWS = 'FETCH_CUSTOM_NEWS';
-export const SHOW_ARTICLE = 'SHOW_ARTICLE';
+export const SEARCH_ARTICLE = 'SEARCH_ARTICLE';
 export const NEWS_ARTICLE_ERROR = 'NEWS_ARTICLE_ERROR';
-export const CHANGE_FILTER = 'CHANGE_FILTER';
+export const FILTER_NEWS = 'FILTER_NEWS';
 export const FETCH_TECH_CRUNCH = 'FETCH_TECH_CRUNCH';
+export const FETCH_TECH_NEWS = 'FETCH_TECH_NEWS';
 
-export const newsArticleError = (error) => ({
-  type: NEWS_ARTICLE_ERROR,
-  payload: { error },
-});
+const apiKey = '08dd40237d8148d9ade088ed2744791c';
 
 export const fetchCustomNews = (source, mostImportant) => (dispatch) => {
-  const handleErrors = (response) => {
-    if (!response.ok) {
-      throw Error(response.statusText);
-    }
-    return response;
-  };
-  const apiKey = '08dd40237d8148d9ade088ed2744791c';
   fetch(`https://newsapi.org/v2/everything?sources=${source}&sortBy=${mostImportant}&apiKey=${apiKey}`)
-    .then(handleErrors)
     .then((response) => response.json())
     .then((response) => {
       // console.log(response);
@@ -27,45 +17,29 @@ export const fetchCustomNews = (source, mostImportant) => (dispatch) => {
         payload: response.articles,
       });
     })
-    .catch((err) => {
-      dispatch(newsArticleError(err));
-      console.log(err);
-    });
+    .catch((err) => (err));
 };
 
-export const fetchTechCrunch = () => (dispatch) => {
-  const apiKey = '08dd40237d8148d9ade088ed2744791c';
-  fetch(`https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=${apiKey}`)
+export const fetchTechCrunch = (id) => (dispatch) => {
+  fetch(`https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=${apiKey}&i=${id}`)
     .then((res) => res.json())
     .then((res) => {
-      // console.log(res)
       dispatch({
         type: FETCH_TECH_CRUNCH,
         payload: res.articles,
       });
     })
-    .catch((err) => {
-      console.log(err);
-    });
+    .catch((err) => (err));
 };
 
-export const showArticle = () => (dispatch) => {
-  const apiKey = '08dd40237d8148d9ade088ed2744791c';
-  fetch(`https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=${apiKey}`)
-    .then((res) => res.json())
-    .then((res) => {
-      // console.log(res)
-      dispatch({
-        type: SHOW_ARTICLE,
-        payload: res.articles,
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+export const searchArticle = (source) => (dispatch) => {
+  dispatch({
+    type: SEARCH_ARTICLE,
+    payload: source,
+  });
 };
 
-export const changeFilter = (filter) => ({
-  type: CHANGE_FILTER,
-  filter,
+export const filterNews = (filter) => ({
+  type: FILTER_NEWS,
+  payload: filter,
 });

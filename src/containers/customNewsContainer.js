@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchCustomNews } from '../actions/newsActions';
-import Article from './Article';
+// import Article from './Article';
 import '../Styles/CustomNewsContainer.css';
 
 const CustomNewsContainer = () => {
@@ -104,9 +104,9 @@ const CustomNewsContainer = () => {
 
       </section>
 
-      {articles ? articles.map((article) => (
+      {/* {articles ? articles.map((article) => (
         <Article key={article.publishedAt} article={article} />
-      )) : 'Nothing'}
+      )) : 'Nothing'} */}
     </>
   );
 };

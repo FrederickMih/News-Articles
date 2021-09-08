@@ -6,8 +6,13 @@ import '../Styles/Article.css';
 
 const Article = ({ article }) => {
   const dispatch = useDispatch();
-  const handleClickGotoArticle = (article) => dispatch({ type: 'SHOW_ARTICLE', article });
+  const handleClickGotoArticle = (article) => dispatch({
+    type: 'SHOW_ARTICLE',
+    article,
+  });
+
   return (
+
     <div className="article">
       <h1>Hello Fred</h1>
       <span className="article-name">{article.author}</span>
@@ -19,7 +24,7 @@ const Article = ({ article }) => {
             article,
           },
         }}
-        key={article.urlToImage}
+        key={article.author}
         onClick={() => handleClickGotoArticle(article)}
       >
         {article.urlToImage}
